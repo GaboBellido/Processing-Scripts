@@ -454,7 +454,7 @@ class input_config:
         otp.write(str(len(self.ms_points)) + "\n")
         for i, val in enumerate(self.ms_points):
             line = '{:d} {:d} {:d}\n'
-            otp.write(line.format(int(i+1), int(val[0]+1), int(val[1]+1)))
+            otp.write(line.format(int(i+1), int(val[0]), int(val[1])))
 
     
     def add_diblock_angle(self, part1, part2, frac, chl, num_chns, Lbond,bond_type,angle_type = None, rmin = 0.0):
@@ -1017,7 +1017,7 @@ class input_config:
                     angle_count += length_LC - 2
                     self.nangles += length_LC - 2
 
-                ms_loc.append([atom_id + length_LC // 2, atom_id + length_LC // 2 + 1])
+                ms_loc.append([atom_id - (-length_LC // 2), atom_id - (-length_LC // 2) + 1])
                 atom_id += length_LC
 
 
